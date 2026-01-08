@@ -1,0 +1,300 @@
+/* Estilos base del Editor (UI Moderna) */
+:root {
+  --base-font-size: 12pt;
+  --primary-color: #2563eb;
+  /* Royal Blue */
+  --hover-color: #1d4ed8;
+  --bg-gradient-start: #f3f4f6;
+  --bg-gradient-end: #e5e7eb;
+  --paper-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  /* UI font */
+  color: #333;
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  font-size: var(--base-font-size);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Forzar tamaño carta en impresión */
+@page {
+  size: letter;
+  margin: 0;
+}
+
+/* Margen 0 para control total desde CSS */
+body {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Contenedor principal del papel */
+#cv {
+  width: 21.59cm;
+  /* Letter Width exact */
+  min-height: 27.94cm;
+  /* Letter Height */
+  margin: 30px auto 60px;
+  background: #fff;
+  border: none;
+  box-shadow: var(--paper-shadow);
+  padding: 2.0cm;
+  /* Margen interno del documento */
+  box-sizing: border-box;
+  position: relative;
+  /* Font family defaults to serif for the CV content, can be overridden by themes */
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #000;
+}
+
+/* Barra de controles flotante o superior */
+#controls {
+  text-align: center;
+  margin-bottom: 25px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 10px;
+  z-index: 100;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Select styling */
+#controls label {
+  font-weight: 600;
+  color: #4b5563;
+  margin-right: 8px;
+  font-size: 0.95rem;
+}
+
+#themeSelect {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #374151;
+  outline: none;
+  transition: all 0.2s;
+}
+
+#themeSelect:hover {
+  border-color: var(--primary-color);
+}
+
+/* Icon buttons */
+.icon-btn {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #4b5563;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.icon-btn:hover {
+  background: #f9fafb;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.icon-btn:active {
+  transform: translateY(0);
+}
+
+/* Buttons inside the CV (Actions) */
+.action-btn {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #4b5563;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+
+.action-btn:hover {
+  background: #f3f4f6;
+  color: #111;
+  border-color: #d1d5db;
+}
+
+.action-btn.small {
+  padding: 4px 10px;
+  font-size: 11px;
+  border-radius: 4px;
+  background-color: #f8fafc;
+}
+
+.entry-controls {
+  opacity: 0.4;
+  transition: opacity 0.2s;
+}
+
+.entry:hover .entry-controls {
+  opacity: 1;
+}
+
+/* Autosave indicator */
+#autosave-indicator {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+
+/* Name centrado y con estilo de hoja escrita */
+#name {
+  text-align: center;
+  font-size: 32px;
+  margin: 12px 0 6px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+#name[contenteditable]:focus {
+  outline: 2px dashed rgba(0, 0, 0, 0.15);
+}
+
+/* Conexiones debajo del nombre */
+#connections {
+  text-align: center;
+  color: #333;
+  margin-bottom: 14px;
+}
+
+/* Secciones */
+section {
+  padding: 12px 6px;
+}
+
+section+section {
+  border-top: 1px solid #000;
+}
+
+h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  text-transform: none;
+}
+
+h2[contenteditable]:focus {
+  outline: 1px dashed rgba(0, 0, 0, 0.12);
+}
+
+/* Firma en pantalla (oculta al imprimir) */
+.signature {
+  text-align: center;
+  color: #666;
+  font-size: 10pt;
+  margin-top: 18px;
+}
+
+/* Entradas */
+.entry {
+  margin-bottom: 10px;
+}
+
+.entry div[contenteditable] {
+  display: block;
+}
+
+ul {
+  margin: 6px 0 0 1.1em;
+}
+
+/* Ocultar controles y botones al imprimir; quitar outlines/caret visibles */
+@media print {
+  #controls {
+    display: none !important;
+  }
+
+  button,
+  .entry button {
+    display: none !important;
+  }
+
+  .signature {
+    display: none !important;
+  }
+
+  body {
+    padding: 0;
+    background: #fff;
+  }
+
+  #cv {
+    box-shadow: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    min-height: auto;
+  }
+
+  [contenteditable] {
+    outline: none !important;
+    caret-color: transparent !important;
+  }
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 600px) {
+  #cv {
+    width: calc(100vw - 32px);
+    padding: 1.2cm;
+  }
+
+  #name {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+}

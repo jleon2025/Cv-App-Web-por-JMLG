@@ -1,0 +1,156 @@
+/* =========================================
+   Themes
+   ========================================= */
+
+/* 1. ORIGINAL / CLASSIC (Default)
+   Inherits mostly from base.css (Times/Georgia)
+   Uses serif fonts, horizontal lines
+*/
+.theme-original {
+    --heading-font: Georgia, 'Times New Roman', serif;
+    --body-font: Georgia, 'Times New Roman', serif;
+    --accent-color: #000;
+}
+
+/* 2. MODERN
+   Sans-serif (Roboto/Arial), Cleaner, Blue/Dark accents
+   Header blocks
+*/
+.theme-modern {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+.theme-modern #name {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #2c3e50;
+    text-transform: uppercase;
+    font-size: 28px;
+    border-bottom: 2px solid #3498db;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.theme-modern h2 {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #3498db;
+    border-bottom: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.theme-modern section+section {
+    border-top: 2px solid #ecf0f1;
+}
+
+.theme-modern #connections {
+    font-size: 0.9em;
+    color: #7f8c8d;
+}
+
+/* 3. EXECUTIVE
+   High contrast, very structured, bold headings
+   Serif headers, Sans-serif body OR Full Sans
+*/
+.theme-executive {
+    font-family: 'Georgia', serif;
+}
+
+.theme-executive #name {
+    font-family: 'Arial', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    text-align: left;
+    /* Align Left */
+}
+
+.theme-executive #connections {
+    text-align: left;
+    border-bottom: 4px solid #000;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.theme-executive h2 {
+    font-family: 'Arial', sans-serif;
+    background: #e0e0e0;
+    padding: 4px 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.theme-executive section+section {
+    border-top: none;
+}
+
+/* 4. CREATIVE
+   Color blocks, playful fonts (Lato/Open Sans implied)
+   Centered or unconventional layout
+*/
+.theme-creative {
+    font-family: 'Verdana', sans-serif;
+}
+
+.theme-creative #cv {
+    background: linear-gradient(to bottom right, #fff 0%, #f9f9f9 100%);
+}
+
+.theme-creative #name {
+    color: #e74c3c;
+    font-size: 40px;
+    font-family: 'Courier New', monospace;
+    /* Monospace stylization */
+}
+
+.theme-creative h2 {
+    color: #e74c3c;
+    border-bottom: 2px dashed #e74c3c;
+    display: inline-block;
+}
+
+.theme-creative section+section {
+    border-top: none;
+}
+
+.theme-creative .entry strong {
+    color: #c0392b;
+}
+
+/* 5. MINIMALIST
+   Lots of white space, small sharp fonts, no borders
+*/
+.theme-minimal {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}
+
+.theme-minimal #name {
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.theme-minimal h2 {
+    font-weight: 400;
+    font-size: 14px;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.theme-minimal section {
+    padding: 15px 0;
+}
+
+.theme-minimal section+section {
+    border-top: 1px solid #f0f0f0;
+}
+
+.theme-minimal #connections {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: #999;
+}

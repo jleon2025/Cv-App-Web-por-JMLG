@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>Editor CV - Serverless</title>
+  <!-- Icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous" />
+  <!-- Base Styles -->
+  <link rel="stylesheet" href="css/base.css">
+  <!-- Themes -->
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+
+<body class="theme-original">
+  <div id="controls">
+    <div style="display:inline-block; margin-right:15px;">
+      <label for="themeSelect" style="font-family:sans-serif; font-size:12px; font-weight:bold;">Tema:</label>
+      <select id="themeSelect" class="action-btn" style="padding: 5px;">
+        <option value="theme-original">Original / Clásico</option>
+        <option value="theme-modern">Moderno</option>
+        <option value="theme-executive">Ejecutivo</option>
+        <option value="theme-creative">Creativo</option>
+        <option value="theme-minimal">Minimalista</option>
+      </select>
+    </div>
+
+    <button id="resetBtn" class="icon-btn" title="Restablecer ejemplo"><i class="fa-solid fa-rotate-left"></i></button>
+    <button id="printBtn" class="icon-btn" title="Imprimir / Guardar PDF"><i class="fa-solid fa-print"></i></button>
+    <button id="exportYamlBtn" class="icon-btn" title="Exportar YAML"><i
+        class="fa-solid fa-file-arrow-down"></i></button>
+    <button id="importYamlBtn" class="icon-btn" title="Importar YAML"><i class="fa-solid fa-file-arrow-up"></i></button>
+    <input id="importYamlInput" type="file" accept=".yaml,.yml" style="display:none" />
+  </div>
+
+  <main id="cv">
+    <h1 id="name" contenteditable="true">Cargando...</h1>
+    <div id="connections">
+      <span id="location" contenteditable="true">...</span> ·
+      <span id="email" contenteditable="true">...</span> ·
+      <span id="phone" contenteditable="true">...</span> ·
+      <span id="website" contenteditable="true">...</span>
+    </div>
+
+    <div id="sections"></div>
+  </main>
+
+  <div class="signature" aria-hidden="true">&copy; | Cv App Web por JMLG</div>
+
+  <!-- YAML lib for export support -->
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+
+  <!-- Scripts Logic (Sequential Loading) -->
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    // Init app
+    window.addEventListener('DOMContentLoaded', () => {
+      // App entry point
+      if (typeof initApp === 'function') initApp();
+
+      // Theme switcher logic
+      const sel = document.getElementById('themeSelect');
+      const body = document.body;
+
+      // Load saved theme?
+      const savedTheme = localStorage.getItem('cv_theme');
+      if (savedTheme && ['theme-original', 'theme-modern', 'theme-executive', 'theme-creative', 'theme-minimal'].includes(savedTheme)) {
+        body.className = savedTheme;
+        sel.value = savedTheme;
+      }
+
+      sel.addEventListener('change', (e) => {
+        body.className = e.target.value;
+        localStorage.setItem('cv_theme', e.target.value);
+      });
+    });
+  </script>
+</body>
+
+</html>
